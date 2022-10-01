@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         PlayerMoveUpdate();
+        PlayerRotateUpdate();
     }
     
     /*Function which updates the player position based on input to WASD keys*/
@@ -38,6 +39,21 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.S) && player.transform.position.y > -2.5)
         {
             player.transform.position = new Vector3(0.0f, -1.0f, 0.0f) + player.transform.position;
+        }
+    }
+
+    /*function which rotates the player if necessary*/
+    void PlayerRotateUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            /*rotate left*/
+            player.transform.Rotate(0.0f, 0.0f, 90.0f);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            /*rotate right*/
+            player.transform.Rotate(0.0f, 0.0f, -90.0f);
         }
     }
 }
