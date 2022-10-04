@@ -81,19 +81,31 @@ public class PlayerMovement : MonoBehaviour
             float x = player.transform.position.x;
             float y = player.transform.position.y;
             float z = 0.0f;
-            Debug.Log(zStore);
-            if (zStore % 4 == 0)
+            int temp = 0;
+            if (zStore < 0)
+            {
+                temp = zStore * -1;
+                if (temp%2 != 0)
+                {
+                    temp += 2;
+                }
+            } else
+            {
+                temp = zStore;
+            }
+            
+            if (temp % 4 == 0)
             {
                 z = -1.0f;
             }
-            else if (zStore % 4 == 2){
+            else if (temp % 4 == 2){
                 z = -2.0f;
             }
-            else if (zStore % 4 == 3)
+            else if (temp % 4 == 3)
             {
                 z = -3.0f;
             }
-            else if (zStore % 4 == 1)
+            else if (temp % 4 == 1)
             {
                 z = -4.0f;
             }
